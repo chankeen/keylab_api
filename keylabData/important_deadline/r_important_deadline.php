@@ -1,0 +1,32 @@
+<?php
+if(isset($_GET['checking_api_file'])){
+    exit();
+}
+
+$important_id = $_REQUEST['important_id'];
+$important_deadline_id = $_REQUEST['important_deadline_id'];
+$rv = new stdClass();
+
+$sql_statment = "select * from keylab_property_important_deadline";
+$where = " where ";
+
+if (!empty($important_deadline_id)){
+    $where = $where."important_deadline_id = ".$important_deadline_id." and ";
+}
+if (!empty($important_id)){
+    $where = $where."important_id = ".$important_id." and ";
+}
+
+$where = substr($where, 0, -5);
+
+if(strlen($where) > 5){
+    $sql_statment = $sql_statment.$where;
+}
+
+$result = $wpdb->get_results($sql_statment);
+$rv->list = $result;
+foreach ($rv->list as $item){
+    $item->file = unserialize($item->file) ?: [];
+}
+exit(json_encode($rv));
+?>

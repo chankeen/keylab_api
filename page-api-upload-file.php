@@ -7,10 +7,11 @@ $rv = new stdClass();
 if(isset($_FILES['orm_file'])){
     $uploadedfile = $_FILES['orm_file'];
     $filename = basename($uploadedfile['name']);
-    $allowed = array('jpeg','gif','png' ,'jpg','pdf','bmp','docx','xls');
+    $allowed = array('jpeg','gif','png' ,'jpg','pdf','bmp','docx','doc','xls');
     $etx = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
     if(!in_array($etx,$allowed)){
         $error = true;
+        $rv->etx = $etx;
         $rv->error_msg = "File type no supported";
     }
     if($error==false){

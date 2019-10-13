@@ -9,6 +9,7 @@ $status = false;
 $status = $wpdb->insert("keylab_users", array(
     'status' => $_REQUEST['status'],
     'type' => $_REQUEST['type'],
+    'category' => $_REQUEST['category'],
     'name_zh' => $_REQUEST['name_zh'],
     'name_en' => $_REQUEST['name_en'],
     'login_tel' => $_REQUEST['login_tel'],
@@ -17,7 +18,7 @@ $status = $wpdb->insert("keylab_users", array(
     'fax' => $_REQUEST['fax'],
     'created_by' => $_REQUEST['created_by']
 ), array(
-    "%s", "%s","%s",
+    "%s", "%s","%s","%s",
     "%s", "%d", "%s","%s","%s","%d"
 ));
 

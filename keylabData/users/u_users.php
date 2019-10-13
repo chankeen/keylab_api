@@ -8,6 +8,7 @@ $status = false;
 $status = $wpdb->update("keylab_users", array(
     'status' => $_REQUEST['status'],
     'type' => $_REQUEST['type'],
+    'category' => $_REQUEST['category'],
     'name_zh' => $_REQUEST['name_zh'],
     'name_en' => $_REQUEST['name_en'],
     'status' => $_REQUEST['status'],

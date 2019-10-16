@@ -12,13 +12,15 @@ $status = $wpdb->insert("keylab_users", array(
     'category' => $_REQUEST['category'],
     'name_zh' => $_REQUEST['name_zh'],
     'name_en' => $_REQUEST['name_en'],
+    'address_zh' => $_REQUEST['address_zh'],
+    'address_en' => $_REQUEST['address_en'],
     'login_tel' => $_REQUEST['login_tel'],
     'backup_tel' => $_REQUEST['backup_tel'],
     'email' => $_REQUEST['email'],
     'fax' => $_REQUEST['fax'],
     'created_by' => $_REQUEST['created_by']
 ), array(
-    "%s", "%s","%s","%s",
+    "%s", "%s","%s","%s","%s","%s",
     "%s", "%d", "%s","%s","%s","%d"
 ));
 

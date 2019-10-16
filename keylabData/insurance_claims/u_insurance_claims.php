@@ -13,7 +13,8 @@ $status = $wpdb->update("keylab_property_insurance_claims", array(
     'amount' => $_REQUEST['amount'],
     'quotation_file' => serialize($_REQUEST['quotation_file']),
     'adjuster_file' => serialize($_REQUEST['adjuster_file']),
-    'insurance_file' => serialize($_REQUEST['insurance_file'])
+    'insurance_file' => serialize($_REQUEST['insurance_file']),
+    'remarks' => $_REQUEST['remarks']
 ), array('insurance_claims_id' => $_POST['insurance_claims_id']));
 if ($status === false) {
     $rv->status = false;
